@@ -17,6 +17,8 @@ class CreateFlight extends CreateRecord
         if ($flight) {
             $flight->generateSeats();
         }
+
+        // $flight = generateSeats();
     }
 
 }

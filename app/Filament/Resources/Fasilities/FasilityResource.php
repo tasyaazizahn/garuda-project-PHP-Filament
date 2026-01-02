@@ -20,7 +20,7 @@ class FasilityResource extends Resource
 {
     protected static ?string $model = Fasility::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
 
     protected static ?string $recordTitleAttribute = 'Fasility';
 
