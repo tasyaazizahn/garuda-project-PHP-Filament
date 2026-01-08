@@ -12,17 +12,20 @@ class FlightSeat extends Model
 
     protected $fillable = [
         'flight_id',
+        'name',
         'row',
         'column',
         'class_type',
         'is_available'
     ];
 
-    public function flight(){
+    public function flight()
+    {
         return $this->belongsTo(Flight::class);
     }
 
-    public function passenger(){
+    public function passenger()
+    {
         return $this->hasOne(TransactionPassenger::class);
     }
 }

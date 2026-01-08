@@ -2,17 +2,17 @@
 namespace App\Filament\Resources\Transactions\Pages;
 
 use App\Filament\Resources\Transactions\TransactionResource;
-use Filament\Widgets\Transactionoverview;
+use App\Filament\Widgets\Transactionverview;
 use Filament\Resources\Pages\ListRecords;
 
 class ListTransactions extends ListRecords
 {
     protected static string $resource = TransactionResource::class;
 
-    public function getHeaderWidgets(): array
+    protected function getHeaderWidgets(): array
     {
         return [
-            //Transactionoverview::class,
+            Transactionverview::class,
         ];
     }
     // protected function getHeaderActions(): array

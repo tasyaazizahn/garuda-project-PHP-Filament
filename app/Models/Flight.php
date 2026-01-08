@@ -44,7 +44,7 @@ class Flight extends Model
         $classes = $this->classes;
 
         foreach ($classes as $class) {
-            $totalSeats  = $class->total_seats;
+            $totalSeats  = $class->total_seat;
             $seatsPerRow = $this->getSeatsPerRow($class->class_type);
             $rows        = ceil($totalSeats / $seatsPerRow);
 

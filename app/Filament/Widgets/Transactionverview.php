@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Filament\Widgets;
 
 use App\Models\Transaction;
@@ -7,6 +8,8 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class Transactionverview extends StatsOverviewWidget
 {
+    protected static bool $isDiscovered = false;
+
     protected function getStats(): array
     {
         return [
@@ -16,7 +19,10 @@ class Transactionverview extends StatsOverviewWidget
                 'Rp ' . number_format(
                     Transaction::query()
                         ->where('payment_status', 'pending')
-                        ->sum('grandtotal'), 0, '.', '.'
+                        ->sum('grandtotal'),
+                    0,
+                    '.',
+                    '.'
                 )
             ),
             Stat::make(
@@ -24,7 +30,10 @@ class Transactionverview extends StatsOverviewWidget
                 'Rp ' . number_format(
                     Transaction::query()
                         ->where('payment_status', 'paid')
-                        ->sum('grandtotal'), 0, '.', '.'
+                        ->sum('grandtotal'),
+                    0,
+                    '.',
+                    '.'
                 )
             ),
         ];
