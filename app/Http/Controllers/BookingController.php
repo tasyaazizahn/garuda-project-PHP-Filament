@@ -20,7 +20,7 @@ class BookingController extends Controller
     }
 
     public function booking(Request $request, $flightNumber){
-        // dd($request->all());
+        dd($request->all());
         $this->transactionRepository->saveTransactionDataToSession($request->all());
 
         return redirect()->route('booking.chooseSeat', ['flightNumber' => $flightNumber]);
@@ -29,9 +29,14 @@ class BookingController extends Controller
     public function chooseSeat(Request $request, $flightNumber){
         $transaction = $this->transactionRepository->getTransactionDataFromSession();
         $flight = $this->flightRepository->getFlightByFlightNumber($flightNumber);
-        // $tier = $flight->classes->find($transaction['flight_class_id']);
+        $tier = $flight->classes->find($transaction['flight_class_id']);
 
-        return view('pages.booking.choose-seat', compact('transaction', 'flight'));
+        return view('pages.booking.choose-seat', compact('transaction', 'flight', 'tier'));
+    }
+
+    public function confirmSeat(Request $request, $flightNumber){
+        dd($request->all());
+        $this->transactionRepository->saveTransactionDataToSession($request->all());
     }
 
     public function checkBooking() {
