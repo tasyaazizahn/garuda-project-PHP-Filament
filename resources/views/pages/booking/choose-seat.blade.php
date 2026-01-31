@@ -87,8 +87,13 @@
                             <hr class="border-[#E8EFF7]">
                             <div class="flex items-center rounded-[20px] gap-[14px]">
                                 <div class="flex w-[120px] h-[100px] shrink-0 rounded-[20px] overflow-hidden">
+                                    @if ($tier->class_type === 'economy')
                                     <img src="{{ asset('assets/images/thumbnails/economy-seat.png') }}"
                                         class="w-full h-full object-cover" alt="icon">
+                                        @else
+                                        <img src="{{ asset('assets/images/thumbnails/business-seat.png') }}"
+                                        class="w-full h-full object-cover" alt="icon">
+                                        @endif
                                 </div>
                                 <div>
                                     <p class="font-bold text-xl leading-[30px]">{{ \Str::ucfirst($tier->class_type) }} Class</p>
@@ -211,7 +216,7 @@
 
 @section('scripts')
 <script>
-    const basePrice = {{ $tier->price }};
+    const basePrice = {!! json_encode($tier->price) !!};
 </script>
 <script src="{{ asset('assets/js/chose-seat.js') }}"></script>
 @endsection

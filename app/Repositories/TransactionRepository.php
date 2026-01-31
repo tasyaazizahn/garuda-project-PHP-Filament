@@ -14,14 +14,15 @@ class TransactionRepository implements TransactionRepositoryInterface{
         return session()->get('transaction');
     }
 
-    public function saveTransactionDataToSession($data){
+    public function saveTransactionDataToSession($data)
+    {
         $transaction = session()->get('transaction', []);
 
-        foreach($data as $key => $value){
+        foreach ($data as $key => $value) {
             $transaction[$key] = $value;
         }
 
-        session()->get('transaction', $transaction);
+        session()->put('transaction', $transaction);
     }
 
     public function saveTransaction($data){
