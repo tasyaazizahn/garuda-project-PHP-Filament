@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Function to handle selecting a dropdown option
     function handleSelection(dropdownId, labelId) {
-        const selectedOption = document.querySelector(`#${dropdownId} input:checked`);
+        const selectedOption = document.querySelector(#${dropdownId} input:checked);
         if (selectedOption) {
             const labelText = selectedOption.id;
             document.getElementById(labelId).textContent = labelText;
@@ -64,27 +64,36 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const dateInput = document.getElementById('date');
     const dateLabel = document.getElementById('Date-Label');
-    const today = new Date();
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
 
-    // Set the input date value to today's date
-    dateInput.valueAsDate = today;
+    if (dateInput && dateLabel) {
+        const today = new Date();
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
 
-    // Update the Date-Label to today's date
-    dateLabel.textContent = today.toLocaleDateString('id-ID', options);
+        // Set the input date value to today's date
+        dateInput.valueAsDate = today;
+
+        // Update the Date-Label to today's date
+        dateLabel.textContent = today.toLocaleDateString('id-ID', options);
+    }
 });
 
-document.getElementById('Date-Button').addEventListener('click', function () {
-    document.getElementById('date').showPicker();
-});
+const dateButton = document.getElementById('Date-Button');
+if (dateButton) {
+    dateButton.addEventListener('click', function () {
+        document.getElementById('date').showPicker();
+    });
+}
 
-document.getElementById('date').addEventListener('change', function () {
-    const dateInput = document.getElementById('date');
-    const dateLabel = document.getElementById('Date-Label');
-    const selectedDate = new Date(dateInput.value);
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    dateLabel.textContent = selectedDate.toLocaleDateString('id-ID', options);
-});
+const dateInputForChange = document.getElementById('date');
+if (dateInputForChange) {
+    dateInputForChange.addEventListener('change', function () {
+        const dateInput = document.getElementById('date');
+        const dateLabel = document.getElementById('Date-Label');
+        const selectedDate = new Date(dateInput.value);
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        dateLabel.textContent = selectedDate.toLocaleDateString('id-ID', options);
+    });
+}
 document.addEventListener('DOMContentLoaded', function () {
     const quantityInput = document.getElementById('quantity');
     const numberDisplays = document.querySelectorAll('.number');

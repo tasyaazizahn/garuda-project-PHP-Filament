@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const seatCheckboxes = document.querySelectorAll('.seat-checkbox');
     const selectedSeatsElement = document.getElementById('selectedSeats');
     const quantityElement = document.getElementById('quantity');
+    const quantityInfoElement = document.getElementById('qunatityInfo');
     const priceElement = document.getElementById('price');
     const subTotalElement = document.getElementById('subTotal');
     const totalTaxElement = document.getElementById('totalTax');
